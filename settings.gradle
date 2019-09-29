@@ -8,7 +8,7 @@ pluginManagement {
 enableFeaturePreview("GRADLE_METADATA")
 
 include "spring-aop"
-include "spring-aspects"
+//include "spring-aspects"
 include "spring-beans"
 include "spring-context"
 include "spring-context-support"
@@ -37,3 +37,5 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
+include 'mytest'
+
