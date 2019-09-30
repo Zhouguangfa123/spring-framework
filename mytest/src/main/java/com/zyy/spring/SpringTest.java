@@ -1,8 +1,10 @@
 package com.zyy.spring;
 
+
 import com.zyy.spring.bean.Student;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.zyy.spring.config.MyConfig;
+import com.zyy.spring.dao.StudentMapper;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * com.zyy.spring.SpringTest
@@ -12,9 +14,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SpringTest {
 	public static void main(String[] args) {
-		String path = "xml/student.xml";
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(path);
-	    Student student = (Student) applicationContext.getBean("stu");
-		System.out.println(student.getAge());
+//		String path = "xml/student.xml";
+//		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(path);
+//		applicationContext.getBean("stu");
+//	    Student student = (Student) applicationContext.getBean("stu");
+//		System.out.println(student.getAge());
+		AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
+		Student student = (Student)annotationConfigApplicationContext.getBean("stu");
+		StudentMapper studentMapper = (StudentMapper)annotationConfigApplicationContext.getBean("studentMapper");
+
 	}
 }
